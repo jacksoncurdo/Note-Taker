@@ -4,6 +4,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const readFileAsync = util.promisify(fs.readFile);
 
 let noteContents; 
+module.exports = function (app) {
+
 
 // Reads the db.json file and returns all saved notes as JSON
 app.get ("/api/notes", function (res,req) {
@@ -29,4 +31,6 @@ app.post ("/api/notes", function (res,req) {
     });
     res.json(newNote);
 });
+
+}
 
