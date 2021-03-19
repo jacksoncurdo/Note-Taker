@@ -14,7 +14,7 @@ app.get ("/api/notes", function (res,req) {
         res.json(noteContents);
     })
 
-})
+});
 
 // Recieves notes to save, add the notes to the db.json, and then returns the notes to the client
 app.post ("/api/notes", function (res,req) {
@@ -32,5 +32,21 @@ app.post ("/api/notes", function (res,req) {
     res.json(newNote);
 });
 
+// Deletes notes
+app.delete ("/api/notes", function (res,req) {
+    let chosenId = parseInt(req.params.id);
+    for (let i = 0; i < noteContents.length; i++) {
+        if (chosenId === noteContents[i].id) {
+            noteContents.splice(i, 1);
+            let noteJSON = JSON.stringify(noteContents, null, 2);
+            writeFileAsync("/db.json", noteJSON).then(function () {
+                console.log("Note deleted");
+            });
+        }
+    }
+    res.json(noteContents);
+});
 }
+
+
 
