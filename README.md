@@ -4,15 +4,16 @@
 An application called Note Taker that can be used to write and save notes.
 
 ## Project Motivation
+To have a fully functioning application that can write and save notes using node.js and Express.
 
 ## Installation 
-npm init
+- npm init
 
-npm install node
+- npm install node
 
-npm install express
+- npm install express
 
-heroku create
+- heroku create
 
 
 ## Technologies used 
